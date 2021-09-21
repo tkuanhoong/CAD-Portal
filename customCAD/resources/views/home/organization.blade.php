@@ -28,24 +28,15 @@
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-5">
           <div class="image-block upset bg-shape">
-            <div class="image-div"><a href="#"><img src="images/team/team-single.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div founder"><img src="/storage/org_images/NUR SYAHIRA AMIRA BINTI MOHD AZHARI.jpeg" alt="team" class="img-fluid"/></div>
           </div>
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="full-image-card mt0">
             <div class="info-text-block">
-              <h4><a href="#">NUR SYAHIRA AMIRA BINTI MOHD AZHARI</a></h4>
+              <h4>NUR SYAHIRA AMIRA BINTI MOHD AZHARI</a></h4>
               <p>Founder of Creative Art & Design Club</p>
             </div>
-            <div class="otherinfo">
-                <p>...<br>...<br>...<br>...<br>...<br>...<br>...</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
@@ -69,17 +60,10 @@
         
         <div class="col-lg-4 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-b.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div president"><img src="/storage/org_images/YASMIEN MAISARAH BINTI DZULKIFLY.jpeg" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">YASMIEN MAISARAH BINTI DZULKIFLY</a></h4>
-              <p>President</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
+              <h4>YASMIEN MAISARAH BINTI DZULKIFLY</h4>
+              <p>President of Creative Art & Design Club</p>
             </div>
           </div>
         </div>
@@ -103,193 +87,109 @@
       <div class="row">
         <div class="col-lg-3 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-1.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div"><img src="/storage/org_images/AUNI AFIFAH BINTI KHUZAIRY.jpg" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">AUNI AFIFAH BINTI KHUZAIRY</a></h4>
+              <h4>AUNI AFIFAH BINTI KHUZAIRY</h4>
               <p>Vice President (Internal)</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-2.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div"><img src="/storage/org_images/MA ATHIRAH BINTI SAPAWI.jpg" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">MA ATHIRAH BINTI SAPAWI</a></h4>
+              <h4>MA ATHIRAH BINTI SAPAWI</h4>
               <p>Vice President (External)</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-3.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div"><img src="/storage/org_images/SYAHIRAH AMIRAH BINTI ABU BAKAR.jpg" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">SYAHIRAH AMIRAH BINTI ABU BAKAR</a></h4>
+              <h4>SYAHIRAH AMIRAH BINTI ABU BAKAR</h4>
               <p>Secretary</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-4.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div"><img src="/storage/org_images/TAN WOON ZHE.png" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">TAN WOON ZHE</a></h4>
+              <h4>TAN WOON ZHE</h4>
               <p>Treasurer</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-5.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div"><img src="/storage/org_images/SUFEA NUR BINTI MOHD ASRI.jpg" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">SUFEA NUR BINTI MOHD ASRI</a></h4>
+              <h4>SUFEA NUR BINTI MOHD ASRI</h4>
               <p>Exco Multimedia and Publicity 1</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-6.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div"><img src="/storage/org_images/FISA AIMANNURAIN BINTI ARIS FADILAH.jpeg" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">FISA AIMANNURAIN BINTI ARIS FADILAH</a></h4>
+              <h4>FISA AIMANNURAIN BINTI ARIS FADILAH</h4>
               <p>Exco Multimedia and Publicity 2</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-7.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div"><img src="/storage/org_images/MUHAMMAD FARIS BIN SARIZAL.jpg" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">MUHAMMAD FARIS BIN SARIZAL</a></h4>
+              <h4>MUHAMMAD FARIS BIN SARIZAL</h4>
               <p>Exco Activity</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
           <div class="full-image-card hover-scale">
-            <div class="image-div"><a href="#"><img src="images/team/team-8.jpg" alt="team" class="img-fluid"/></a></div>
+            <div class="image-div"><img src="/storage/org_images/FURQAN QADRI.jpg" alt="team" class="img-fluid"/></div>
             <div class="info-text-block">
-              <h4><a href="#">FURQAN QADRI</a></h4>
+              <h4>FURQAN QADRI</h4>
               <p>Exco Cooperate Relations</p>
-              <div class="social-media-profile">
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                
-              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6">
             <div class="full-image-card hover-scale">
-              <div class="image-div"><a href="#"><img src="images/team/team-1.jpg" alt="team" class="img-fluid"/></a></div>
+              <div class="image-div"><img src="/storage/org_images/GHAYATHRI UMASANGARAN.jpeg" alt="team" class="img-fluid"/></div>
               <div class="info-text-block">
-                <h4><a href="#">GHAYATHRI UMASANGARAN</a></h4>
+                <h4>GHAYATHRI UMASANGARAN</h4>
                 <p>Exco Entrepreneurship</p>
-                <div class="social-media-profile">
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                    
-                  </div>
               </div>
             </div>
           </div>
           <div class="col-lg-3 col-sm-6">
             <div class="full-image-card hover-scale">
-              <div class="image-div"><a href="#"><img src="images/team/team-2.jpg" alt="team" class="img-fluid"/></a></div>
+              <div class="image-div"><img src="/storage/org_images/SHUVEINEEA.jpg" alt="team" class="img-fluid"/></div>
               <div class="info-text-block">
-                <h4><a href="#">SHUVEINEEA A/P GUNASEKARAN</a></h4>
+                <h4>SHUVEINEEA A/P GUNASEKARAN</h4>
                 <p>Exco Special Task</p>
-                <div class="social-media-profile">
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                    
-                  </div>
               </div>
             </div>
           </div>
           <div class="col-lg-3 col-sm-6">
             <div class="full-image-card hover-scale">
-              <div class="image-div"><a href="#"><img src="images/team/team-3.jpg" alt="team" class="img-fluid"/></a></div>
+              <div class="image-div"><img src="/storage/org_images/TAN KUAN HOONG.jpeg" alt="team" class="img-fluid"/></div>
               <div class="info-text-block">
-                <h4><a href="#">TAN KUAN HOONG</a></h4>
+                <h4>TAN KUAN HOONG</h4>
                 <p>Exco Website Manager 1</p>
-                <div class="social-media-profile">
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                    
-                  </div>
               </div>
             </div>
           </div>
           <div class="col-lg-3 col-sm-6">
             <div class="full-image-card hover-scale">
-              <div class="image-div"><a href="#"><img src="images/team/team-1.jpg" alt="team" class="img-fluid"/></a></div>
+              <div class="image-div"><img src="/storage/org_images/NG QING XIAN.jpeg" alt="team" class="img-fluid"/></div>
               <div class="info-text-block">
-                <h4><a href="#">NG QING XIAN</a></h4>
+                <h4>NG QING XIAN</h4>
                 <p>Exco Website Manager 2</p>
-                <div class="social-media-profile">
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-                    <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-                    
-                  </div>
               </div>
             </div>
           </div>

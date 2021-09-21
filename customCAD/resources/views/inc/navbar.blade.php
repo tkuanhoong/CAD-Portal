@@ -13,7 +13,7 @@
           @guest
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{ asset('images/userLogo.png') }}" alt="userLogo" width="35"/>
+                <img style="vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;" src="{{ asset('images/userLogo.png') }}" alt="userLogo" width="35"/>
             </a>
             <div class="dropdown-menu animate slideIn" aria-labelledby="user">
               
@@ -22,11 +22,11 @@
               @else
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{ asset('images/userLogo.png') }}" alt="userLogo" width="35"/>
+                    <img style="vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;object-fit:cover;" src="/storage/avatar_images/{{ auth()->user()->avatar}}" alt="userLogo" width="35"/>
                     {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu animate slideIn" style="width:100%" aria-labelledby="user">
-                  <a class="dropdown-item" href="#">{{ __('Edit Profile') }}</a>
+                  <a class="dropdown-item" href="{{ route('profile.edit', auth()->user()->id) }}">{{ __('My Profile') }}</a>
                   <hr>
                   <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
@@ -60,7 +60,7 @@
   <li><a href="./organization">Organization</a></li>
   <li><a href="./contact">Contact</a> </li>
   @guest
-  <li><a href="#"><img src="{{ asset('images/userLogo.png') }}" alt="userLogo" width="35"/></a>
+  <li><a href="#"><img style="vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;" src="{{ asset('images/userLogo.png') }}" alt="userLogo" width="35"/></a>
     <ul>
       <li><a href="{{ route('login') }}">Login</a></li>
       <li><a href="{{ route('register') }}">Register</a></li>
@@ -68,11 +68,11 @@
   </li>
   @else
   <li>
-    <a href="#"><img src="{{ asset('images/userLogo.png') }}" alt="userLogo" width="35"/>
+    <a href="#"><img style="vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;object-fit:cover;" src="/storage/avatar_images/{{ auth()->user()->avatar }}" alt="userLogo" width="35"/>
     {{ Auth::user()->name }}
     </a>
     <ul>
-      <li><a href="#">{{ __('Edit Profile') }}</a></li>
+      <li><a href="{{ route('profile.edit',auth()->user()->id) }}">My Profile</a></li>
       <li><a href="{{ route('logout') }}"
       onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>

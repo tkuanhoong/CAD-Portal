@@ -4,15 +4,15 @@
   <!--Start login Form-->
   <section class="login-page pad-tb">
     <div class="v-center m-auto">
-      <div class="login-form-div">
-        <a href="{{ route('home') }}" class="d-block text-center mb30"><img src="{{ asset('images/cadLogoNoText.png') }}" alt="Logo" class="mega-darks-logo" width="80"></a>     
+      <div class="login-form-div"> 
+        <a href="{{ route('home') }}" class="d-block text-center mb30"><img src="{{ asset('images/cadLogoNoText.png') }}" alt="Logo" class="mega-darks-logo" width="80"></a>
         <h4 class="mb40 text-center">Login to your Account</h4>
         <div class="form-block">
           <form id="contact-form" method="POST" action="{{ route('login') }}">
             @csrf
             <div class="fieldsets row">
               <div class="col-md-12 form-group">
-                    <input id="email" type="email"  placeholder="Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input id="email" type="email" placeholder="Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

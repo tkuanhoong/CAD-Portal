@@ -17,10 +17,15 @@ Route::get('/', 'PagesController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 //Route::get('/programs', 'PagesController@programs')->name('programs');
 Route::get('/organization', 'PagesController@organization')->name('organization');
+
+//Contact page controller
 Route::get('/contact', 'PagesController@contact')->name('contact');
+Route::post('/contact', 'ContactController@saveContact')->name('saveContact');
 
 
-Auth::routes();
+
+
+Auth::routes(['verify' => true]);
 
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
@@ -28,6 +33,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 Route::resource('/users', 'UsersController', ['except'=>['show','create','store']]);
 });
 
+Route::resource('/profile', 'ProfileController', ['except'=>['show','create','store']]);
+
+Route::put('/change_password/{id}','ChangePasswordController@update')->name('ChangePassword');
 //Route::get('/member', 'MemberController@index')->name('member')->middleware('member');
 //Route::get('/user', 'UserController@index')->name('user')->middleware('user');
 //Route::get('/home', 'HomeController@index')->name('home');

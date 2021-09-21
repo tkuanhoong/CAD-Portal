@@ -19,12 +19,12 @@
         <!-- template-style-->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/profile-form.css') }}" rel="stylesheet">
 
     </head>
     
     <body>
     
-        <div id="app">
         <!--Start Preloader -->
         <div class="onloadpage" id="page_loader">
             <div class="pre-content">
@@ -46,7 +46,6 @@
                 @include('inc.footer')
             </footer>
 
-        </div>
 
 
 

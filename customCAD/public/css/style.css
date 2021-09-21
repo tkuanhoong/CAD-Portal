@@ -40,6 +40,7 @@ button:focus {outline: none!important}
 .header-heading .fa-icon{    margin-left: 5px; font-size: 12px; animation: 2s infinite arrowanim; -webkit-animation: 2s infinite arrowanim;}
 .common-heading{padding: 0;    text-align: center;    position: relative;z-index: 10;}
 .common-heading h2 {        margin-bottom: 60px;}
+.common-heading p {        text-align: justify;text-justify: inter-word;}
 .inner-heading h2 {     margin-bottom: 30px;}
 .v-center{align-self: center; align-items: center;}
 button{ position: relative;    overflow: hidden;}
@@ -717,7 +718,7 @@ overflow: hidden;
 background: #f3f9ff;
 -webkit-box-shadow: 0 3.4px 2.7px -30px rgba(0, 0, 0, 0.059), 0 8.2px 8.9px -30px rgba(0, 0, 0, 0.071), 0 25px 40px -30px rgba(0, 0, 0, 0.2);
 box-shadow: 0 3.4px 2.7px -30px rgba(0, 0, 0, 0.059), 0 8.2px 8.9px -30px rgba(0, 0, 0, 0.071), 0 25px 40px -30px rgba(0, 0, 0, 0.2);}
-.item-image img {  width: 100%;}
+.item-image img {  width: 370px; height:270px; object-fit:contain;}
 .portfolio-block{   position: relative;    padding:50px;    border-radius: 8px;    display: flex;    align-items: center;    justify-content: space-between;}
 .portfolio-item-info h3 a{color: #050748;}
 .portfolio-item-info{    width: 50%; padding-right: 40px}
@@ -1505,7 +1506,9 @@ overflow:hidden;
 -webkit-box-shadow: 0 3.4px 2.7px -30px rgba(0, 0, 0, 0.059), 0 8.2px 8.9px -30px rgba(0, 0, 0, 0.071), 0 25px 40px -30px rgba(0, 0, 0, 0.2);
 box-shadow: 0 3.4px 2.7px -30px rgba(0, 0, 0, 0.059), 0 8.2px 8.9px -30px rgba(0, 0, 0, 0.071), 0 25px 40px -30px rgba(0, 0, 0, 0.2);}
 .case-study2{background: #fee;}
-.image-div img{width:100%;}
+.image-div.founder img {width:470px; height:560px; object-fit: cover;}
+.image-div.president img{width:370px; height:440px; object-fit: cover;}
+.image-div img{width:270px; height:320px; object-fit: cover;}
 .case-study2    .s-block {
 text-align: center;
 background: #fff;

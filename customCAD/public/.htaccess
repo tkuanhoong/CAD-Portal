@@ -6,8 +6,8 @@
     RewriteEngine On
 
     <Files .env>
-        Order allow,deny
-        Deny from all
+    Order allow,deny
+    Deny from all
     </Files>
 
     # Handle Authorization Header

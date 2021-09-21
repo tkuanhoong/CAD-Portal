@@ -7,6 +7,8 @@ use App\User;
 use App\Role;
 use Gate;
 use Illuminate\Http\Request;
+//Bring in storage image
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -82,7 +84,17 @@ class UsersController extends Controller
         if(Gate::denies('delete-users')){
             return redirect()->route('admin.users.index');
         }
+        
+        //Delete user profile picture
+        if($user->avatar != 'userLogo.png'){
+            //Delete Image
+            Storage::delete('public/avatar_images/'.$user->avatar);
+        }
+
+        //Delete user role
         $user->roles()->detach();
+
+        //Delete whole date of the user from user table
         $user->delete();
 
         return redirect()->route('admin.users.index');

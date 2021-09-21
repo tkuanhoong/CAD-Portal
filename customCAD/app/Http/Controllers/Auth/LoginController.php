@@ -53,9 +53,10 @@ class LoginController extends Controller
     public function redirectTo(){
         if(Auth::user()->hasRole('admin')){
             $this->redirectTo = route('admin.users.index');
-            return $this->redirectTo;
+        }else{
+            $this->redirectTo = route('home');
         }
-        $this->redirectTo = route('home');
+        
 
         return $this->redirectTo;
 
@@ -72,4 +73,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /*public function authenticated(Request $request, $user)
+    {
+    if (!$user->hasVerifiedEmail()) {
+        auth()->logout();
+        return back()->with('warning', 'Please check your email for activation link.');
+    }
+    return redirect()->intended($this->redirectPath());
+    }*/
 }

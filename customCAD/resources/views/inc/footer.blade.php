@@ -30,15 +30,9 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="footer-social-media-icons">
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-facebook"></i></a>
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-twitter"></i></a>
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-instagram"></i></a>
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-linkedin"></i></a>
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-youtube"></i></a>
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-pinterest-p"></i></a>
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-vimeo-v"></i></a>
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-dribbble"></i></a>
-              <a href="javascript:void(0)" target="blank"><i class="fab fa-behance"></i></a>
+              <a href="https://www.facebook.com/cadutmkl186/" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.instagram.com/cad_utmkl/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://t.me/cadutmkl" target="_blank"><i class="fab fa-telegram"></i></a>
             </div>
             <div class="footer-">
               <p>Copyright &copy; 2021 CADUTMKL. All rights reserved.</p>
