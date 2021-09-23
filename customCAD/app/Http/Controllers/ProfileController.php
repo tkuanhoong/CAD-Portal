@@ -69,8 +69,10 @@ class ProfileController extends Controller
 
         //Input Data
         $user->name = $request->name;
-        if($request->hasFile('avatar')){
+        if($request->hasFile('avatar') && $user->avatar != 'userLogo.png'){
             Storage::delete('public/avatar_images/' . $user->avatar);
+            $user->avatar = $fileNameToStore;
+        }else{
             $user->avatar = $fileNameToStore;
         }
 
