@@ -24,7 +24,8 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.users.index')->with('users',$users);
+        $roles = Role::all();
+        return view('admin.users.index1')->with('users',$users);
     }
 
     /**
@@ -61,6 +62,9 @@ class UsersController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        if($request->has('verification')){
+            $user->verification = $request->verification;
+        }
         
         if($user->save()){
             $request->session()->flash('success',$user->name.' have been updated');

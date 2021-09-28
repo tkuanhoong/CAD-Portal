@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'tkuanhoong@gmail.com',
             'password' => Hash::make('password'),
         ]);
-
+        
         $admin->roles()->attach($adminRole);
         $user->roles()->attach($userRole);
     }

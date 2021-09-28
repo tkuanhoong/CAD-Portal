@@ -28,7 +28,4 @@ class PagesController extends Controller
         return view('home.contact');
     }
 
-    public function adminExample(){
-        return view('layouts.admin');
-    }
 }
