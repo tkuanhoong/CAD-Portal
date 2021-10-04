@@ -29,27 +29,6 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /*public function redirectTo(){
-        if(Auth::check()){
-            switch(Auth::user()->roles()->value('name')){
-                case 'admin': 
-                    $redirectTo = route('admin.users.index');
-                    return $redirectTo;
-                    break;
-                case 'user':
-                    $redirectTo = route('home');
-                    return $redirectTo;
-                    break;
-                default:
-                    $redirectTo = route('login');
-                    return $redirectTo;
-                    break;
-            }
-    
-        }
-
-    }*/
-
     public function redirectTo(){
         if(Auth::user()->hasRole('admin')){
             $this->redirectTo = route('admin.index');
@@ -74,5 +53,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->verification !== 'verified') {
+            Auth::logout();
+
+            return redirect(route('login'))->with('unverified','Your account is waiting for our administrator approval. Please check back later.');
+        }
+    }
     
 }

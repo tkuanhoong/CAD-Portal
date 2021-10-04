@@ -9,6 +9,8 @@ use Gate;
 use Illuminate\Http\Request;
 //Bring in storage image
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -25,7 +27,7 @@ class UsersController extends Controller
     {
         $users = User::all();
         $roles = Role::all();
-        return view('admin.users.index1')->with('users',$users);
+        return view('admin.users.index')->with('users',$users);
     }
 
     /**
@@ -40,11 +42,8 @@ class UsersController extends Controller
             return redirect()->route('admin.users.index');
         }
         $roles = Role::all();
-        return view('admin.users.edit')->with([
-            'user' => $user,
-            'roles' => $roles,
-
-        ]);
+        $data = compact(['user','roles']);
+        return view('admin.users.edit')->with($data);
     }
 
     /**
@@ -64,10 +63,16 @@ class UsersController extends Controller
         $user->email = $request->email;
         if($request->has('verification')){
             $user->verification = $request->verification;
+        }else{
+            $user->verification = 'unverified';
+        }
+
+        if($request->has('password')){
+            $user->password = Hash::make($request->password);
         }
         
         if($user->save()){
-            $request->session()->flash('success',$user->name.' have been updated');
+            $request->session()->flash('success','User have been updated successfully.');
         }else{
             $request->session()->flash('error','There was an error updating the user');
         }
@@ -103,4 +108,40 @@ class UsersController extends Controller
 
         return redirect()->route('admin.users.index');
     }
+
+    public function verifyAllCheckedUser(Request $request){
+    
+        //verify all selected user
+        if($request->has('checkboxes')){
+            $checkedUsers = $request->checkboxes;
+            foreach($checkedUsers as $checkedUser){
+                DB::table('users')->where('id','=',$checkedUser)->update(['verification'=>"verified"]);
+            }
+            return back()->with('success','The selected user(s) has been verified!');
+        }else if(!$request->has('checkboxes')){
+            return back()->with('warning','There is no selected user(s). Please select at least 1 user to verify.');
+        }else{
+            return back()->with('error','There was a problem verifying user(s)');
+        }
+
+    }
+
+    public function unverifyAllCheckedUser(Request $request){
+    
+        
+        if($request->has('checkboxes')){
+            $checkedUsers = $request->checkboxes;
+            foreach($checkedUsers as $checkedUser){
+                DB::table('users')->where('id','=',$checkedUser)->update(['verification'=>"unverified"]);
+            }
+            return back()->with('success','The selected user(s) has been unverified!');
+        }else if(!$request->has('checkboxes')){
+            return back()->with('warning','There is no selected user(s). Please select at least 1 user to unverify.');
+        }else{
+            return back()->with('error','There was a problem unverifying user(s)');
+        }
+        
+
+    }
+
 }

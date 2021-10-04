@@ -41,6 +41,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:admi
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except'=>['show','create','store']]);
+    Route::put('/users', 'UsersController@verifyAllCheckedUser')->name('users.verifyAll');
 });
 
 //End Admin
