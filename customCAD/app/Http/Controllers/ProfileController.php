@@ -83,9 +83,16 @@ class ProfileController extends Controller
 
         if($user->save()){
             $request->session()->flash('success','Your profile have been successfully changed!');
+        }else{
+            $request->session()->flash('error','There is problem saving your profile');
         }
-
-        return redirect()->route('profile.edit',auth()->user()->id);
+    
+        if($user->hasRole('admin')){
+            return redirect()->route('admin.profile');
+            
+        }else{
+            return redirect()->route('profile.edit',auth()->user()->id);
+        }
 
 
     }

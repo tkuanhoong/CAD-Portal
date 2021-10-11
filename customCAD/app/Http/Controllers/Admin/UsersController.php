@@ -42,8 +42,7 @@ class UsersController extends Controller
             return redirect()->route('admin.users.index');
         }
         $roles = Role::all();
-        $data = compact(['user','roles']);
-        return view('admin.users.edit')->with($data);
+        return view('admin.users.edit',compact('user','roles'));
     }
 
     /**
@@ -55,6 +54,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        
         $user->roles()->update(array(
             'role_id'=> $request->roles
         ));
@@ -67,17 +67,15 @@ class UsersController extends Controller
             $user->verification = 'unverified';
         }
 
-        if($request->has('password')){
+        if($request->has('password') && $request->password !== null){
             $user->password = Hash::make($request->password);
         }
-        
+
         if($user->save()){
             $request->session()->flash('success','User have been updated successfully.');
         }else{
             $request->session()->flash('error','There was an error updating the user');
         }
-
-        $request->session()->flash('success','User have been updated');
 
         return redirect()->route('admin.users.index');
     }

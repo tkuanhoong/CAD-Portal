@@ -35,7 +35,7 @@
               <a href="https://t.me/cadutmkl" target="_blank"><i class="fab fa-telegram"></i></a>
             </div>
             <div class="footer-">
-              <p>Copyright &copy; 2021 CADUTMKL. All rights reserved.</p>
+              <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> CADUTMKL. All rights reserved.</p>
             </div>
           </div>
         </div>

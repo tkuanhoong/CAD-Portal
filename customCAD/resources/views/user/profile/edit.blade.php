@@ -100,7 +100,7 @@
 
                   <div class="form-group">
                     <label for='current_password'class="form-label">Current Password</label>
-                    <input id='current_password' name='current_password' type="password" class="form-control @error('current_password') is-invalid @enderror">
+                    <input id='current_password' name='current_password' type="password" class="form-control @error('current_password') is-invalid @enderror" value="{{ old('current_password') }}">
                     @error('current_password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

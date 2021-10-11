@@ -31,8 +31,8 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> My Profile</a>
-                    <a class="dropdown-item d-flex align-items-center" href="#"><i class="mdi mdi-cog font-size-17 align-middle me-1"></i> Settings</a>
+                    <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> My Profile</a>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.change-password') }}"><i class="mdi mdi-lock font-size-17 align-middle me-1"></i> Change Password</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -67,7 +67,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class=" waves-effect">
+                    <a href="{{ route('admin.events.index') }}" class=" waves-effect">
                         <i class="ti-calendar"></i>
                         <span>Events</span>
                     </a>

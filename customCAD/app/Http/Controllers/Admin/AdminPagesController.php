@@ -16,4 +16,12 @@ class AdminPagesController extends Controller
        
         return view('admin.index');
     }
+
+    public function profile(){
+        return view('admin.profile.index');
+    }
+
+    public function ChangePassword(){
+        return view('admin.profile.password');
+    }
 }

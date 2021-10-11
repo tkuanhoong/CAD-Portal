@@ -90,79 +90,64 @@
     <!--Start blog-->
 <section class="blog-home pad-tb">
     <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="common-heading">
-          <span>PROGRAMS</span>
-          <h2 class="mb0">Our Upcoming Programs</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="common-heading">
+            <span>PROGRAMS</span>
+            <h2 class="mb4">Our Upcoming Programs</h2>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4 col-sm-6 single-card-item wow fadeInUp" data-wow-delay=".2s">
-        <div class="isotope_item hover-scale">
-          <div class="item-image">
-            <a href="#"><img src="/storage/event_images/event1.jpeg" alt="blog" class="img-fluid"/> </a>
-            <span class="category-blog"><a href="#">Competition</a></span>
+      @if (count($events) == 0)
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+              <div class="common-heading">
+                  <lottie-player class="mb-4" src="https://assets2.lottiefiles.com/packages/lf20_AQcLsD.json"  background="transparent"  speed="1"  style="margin: 0 auto; width: 200px; height: 200px;"  loop autoplay></lottie-player>
+                  <h5 class="mb30">No Program Available</h5>
+              </div>
           </div>
-          <div class="item-info blog-info">
-            <div class="entry-blog">
-              <span class="bypost"><a href="#"><i class="fas fa-user"></i>Tew Yee Hoe</a></span>
-              <span class="posted-on">
-                <a href="#"><i class="fas fa-clock"></i> Sep 24, 2021</a>
-              </span>
-              
+        </div>
+      @else
+        <div class="row mb-4">
+          @php
+              $count = 2
+          @endphp
+          @foreach ($events as $event)
+            <div class="col-lg-4 col-sm-6 single-card-item wow fadeInUp" data-wow-delay=".{{ $count }}s">
+              <div class="isotope_item hover-scale">
+                <div class="item-image">
+                  <a href="{{ route('showSingleProgram',$event) }}"><img src="/storage/event_images/{{ $event->banner }}" alt="blog" class="img-fluid"/> </a>
+                  <span class="category-blog"><a href="{{ route('showSingleProgram',$event) }}">{{ ucfirst($event->category) }}</a></span>
+                </div>
+                <div class="item-info blog-info">
+                  <div class="entry-blog">
+                    <div class="mb-4">
+                      <span class="bypost"><a href="{{ route('showSingleProgram',$event) }}"><i class="fas fa-user"></i> {{ $event->organizer }}</a></span>
+                    </div>
+                    <div>
+                      <span class="posted-on">
+                        <a href="{{ route('showSingleProgram',$event) }}"><i class="fas fa-clock"></i> {{ date('D, d M Y', strtotime($event->date)).", ".date('h:i A', strtotime($event->time)) }} </a>
+                      </span>
+                    </div>
+                  </div>
+                  <h4><a href="{{ route('showSingleProgram',$event) }}">{{ $event->title }}</a></h4>
+                  <p style="text-align: justify">{{ substr($event->short_description, 0, 35 )."..." }}</p>
+                </div>
+              </div>
             </div>
-            <h4><a href="#">Henna Design Contest</a></h4>
-            <p>Relax and refresh yourself by being one with art...</p>
-          </div>
+            @php
+              $count += 2
+            @endphp
+          @endforeach
         </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 single-card-item wow fadeInUp" data-wow-delay=".4s">
-        <div class="isotope_item hover-scale">
-          <div class="item-image">
-            <a href="#"><img src="/storage/event_images/event2.jpeg" alt="blog" class="img-fluid"/> </a>
-            <span class="category-blog"><a href="#">Free</a></span>
-          </div>
-          <div class="item-info blog-info">
-            <div class="entry-blog">
-              <span class="bypost"><a href="#"><i class="fas fa-user"></i> Ng Qing Xian</a></span>
-              <span class="posted-on">
-                <a href="#"><i class="fas fa-clock"></i> Sep 13, 2021</a>
-              </span>
-              
-            </div>
-            <h4><a href="#">DIY Craft Competition</a></h4>
-            <p>Submit your video & picture of craft! Looking forward to see your craft...</p>
-          </div>
+        <div style="text-align: center">
+          <a href="/programs" class="btn-main bg-btn lnk wow fadeInUp mb-auto" data-wow-delay=".6s">Find Out More Programs! <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
         </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 single-card-item wow fadeInUp" data-wow-delay=".6s">
-        <div class="isotope_item hover-scale">
-          <div class="item-image">
-            <a href="#"><img src="/storage/event_images/event3.jpeg" alt="blog" class="img-fluid"/> </a>
-            <span class="category-blog"><a href="#">Recommended</a> </span>
-          </div>
-          <div class="item-info blog-info">
-            <div class="entry-blog">
-              <span class="bypost"><a href="#"><i class="fas fa-user"></i> Tan Kuan Hoong</a></span>
-              <span class="posted-on">
-                <a href="#"><i class="fas fa-clock"></i> Sep 2, 2021</a>
-              </span>
-              
-            </div>
-            <h4><a href="#">Art Craft</a></h4>
-            <p>E-CERT and ACAD merit will be provided...
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+      @endif
+      
+      
+    
     </div>
     </section>
     <!--End blog-->
-    <div style="text-align: center">
-    <a href="/programs" class="btn-main bg-btn lnk wow fadeInUp" data-wow-delay=".6s">Find Out More Programs! <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
-    <br><br><br><br><br><br><br><br>
-    </div>
     @endsection

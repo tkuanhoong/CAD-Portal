@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
-//Route::get('/programs', 'PagesController@programs')->name('programs');
+Route::get('/programs', 'PagesController@programs')->name('programs');
+Route::get('/programs/{event}', 'PagesController@showSingleProgram')->name('showSingleProgram');
 Route::get('/organization', 'PagesController@organization')->name('organization');
+Route::get('/test', 'PagesController@test')->name('test');
 
 //Contact page controller
 Route::get('/contact', 'PagesController@contact')->name('contact');
@@ -36,12 +38,18 @@ Auth::routes();
 //Admin manage pages
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:admin-panel')->group(function(){
     Route::get('/dashboard', 'AdminPagesController@index')->name('index');
-    //Route::resource('profile', 'AdminPagesController', ['except'=>['show','create','store']]);
+    Route::get('/profile', 'AdminPagesController@profile')->name('profile');
+    Route::get('/change-password', 'AdminPagesController@ChangePassword')->name('change-password');
 });
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except'=>['show','create','store']]);
     Route::put('/users', 'UsersController@verifyAllCheckedUser')->name('users.verifyAll');
+    
+});
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-events')->group(function(){
+    Route::resource('/events', 'EventsController');
 });
 
 //End Admin

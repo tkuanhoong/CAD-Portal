@@ -35,6 +35,10 @@ class ChangePasswordController extends Controller
             $request->session()->flash('success','Password successfully changed!');
         }
 
-        return redirect()->route('profile.edit',auth()->user()->id);
+        if($user->hasRole('admin')){
+            return redirect()->route('admin.change-password');
+        }else{
+            return redirect()->route('profile.edit',auth()->user()->id);
+        }
     }
 }
