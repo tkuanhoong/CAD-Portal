@@ -2,15 +2,17 @@
 
 @section('content')
   <!--Start login Form-->
-  <section class="login-page pad-tb">
+  <section style="height:auto !important;"class="login-page pad-tb">
     <div class="v-center m-auto">
       <div class="login-form-div"> 
-        @if (session('unverified'))
+        @if(session('success'))
+        <div class="alert alert-success">
+          <p style="text-align: center">{{ session('success') }}</p>
+        </div>
+        @elseif (session('unverified'))
           <div class="alert alert-warning">
-            <p style="text-align: justify">{{ session('unverified') }}</p>
-          </div> 
-        @else
-          
+            <p style="text-align: center">{{ session('unverified') }}</p>
+          </div>
         @endif
         <a href="{{ route('home') }}" class="d-block text-center mb30"><img src="{{ asset('images/cadLogoNoText.png') }}" alt="Logo" class="mega-darks-logo" width="80"></a>
         <h4 class="mb40 text-center">Login to your Account</h4>

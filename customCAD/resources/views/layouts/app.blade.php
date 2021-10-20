@@ -58,47 +58,8 @@
     <!--common script file-->
     <script src="{{ asset('js/main.js') }}"></script>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script>
-        //Owl-Carousel - Home hero card
-        var owl = $('.post-newsltr');
-        owl.owlCarousel({
-        stagePadding: 50,
-        items: 3,
-        loop: true,
-        autoplay: true,
-        margin: 20,
-        nav: false,
-        dots: false,
-        autoplayTimeout: 3500,
-        autoplayHoverPause: true,
-        smartSpeed: 2000,
-        responsive: {
-        0: {
-        items: 1,
-        stagePadding: 30,
-        },
-        520: {
-        items: 1
-        },
-        768: {
-        items: 2
-        },
-        1200: {
-        items: 2
-        },
-        1400: {
-        items: 3
-        },
-        1600: {
-        items: 3
-        },
-        }
-        });
-    </script>
-    </body>
+</body>
     
     
 </html>

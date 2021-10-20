@@ -79,6 +79,23 @@
         <script src="{{asset('admin/js/pages/dashboard.init.js')}}"></script>
 
         <script src="{{asset('admin/js/app.js')}}"></script>
+        <script type="text/javascript">
+                document.getElementById('selectAll').onclick = function() {
+                var checkboxes = document.getElementsByClassName('checkboxes');
+                for (var checkbox of checkboxes) {
+                    checkbox.checked = this.checked;
+                }
+                }
+            
+                function submitVerifyAllForm(){
+                    event.preventDefault();
+                    var result = confirm('Are you sure to verify the selected user?');
+                    if(result){
+                        document.getElementById('verifyAllForm').submit();
+            
+                    }
+                }
+        </script>
 
     </body>
 

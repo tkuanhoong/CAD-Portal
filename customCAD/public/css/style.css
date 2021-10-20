@@ -54,6 +54,13 @@ transition: 1.2s cubic-bezier(.17, .85, .438, .99);
 -o-transition: all 0.4s;
 -webkit-transition: all 0.4s;
 transition: all 0.4s;*/}
+.isotope_item:hover{
+    cursor:pointer;
+    -webkit-box-shadow: 0 10px 15px 0px rgba(56, 0, 189, .2);
+    box-shadow: 0 10px 15px 0px rgba(56, 0, 189, .2);
+    /*-webkit-box-shadow: 0 10px 15px 0px rgba(175, 0, 87, .2);
+    box-shadow: 0 10px 15px 0px rgba(175, 0, 87, .2);*/
+}
 .no-shadow{box-shadow:none !important}
 span.circle{background: rgba(255, 255, 255, 0.2); display: block; position: absolute; top: -10%; right: -130px; width: 200px; height: 200px; border-radius: 50%;}
 .lnk:hover span.circle{ top: -10%;    right: -80px;}
@@ -706,7 +713,7 @@ left: 0;
 top: 0;
 background-size: auto;
 background-repeat: repeat;}
-.isotope_item{  position:relative;}
+.isotope_item{ position:relative;padding:20px;border-radius:20px;width: 100%; height: 100% !important;}
 .item-info{ padding:20px 0 0px 0;}
 .isotope_item h4 {font-weight: 600;  margin: 0 0 10px 0;}
 .isotope_item h4 a{ color: #050748;}
@@ -3630,3 +3637,22 @@ box-shadow: -20px 20px 35px #151515, 20px -40px 35px #151515;
 .active-dark .fdgn2 input,.active-dark .fdgn2 select,.active-dark .fdgn2 textarea {  border: 2px solid #404040!important;}
 .active-dark .modal-header { border-bottom: 1px solid #404040;}
 .active-dark .popup-modal1 .modal-dialog { background: #101010;}
+
+.clamp-1{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.clamp-2{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.clamp-3{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}

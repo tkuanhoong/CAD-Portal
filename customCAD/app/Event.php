@@ -18,6 +18,7 @@ class Event extends Model
         'meeting_link'
     ];
     public function users(){
-        return $this->belongsToMany('\App\User');
+        return $this->belongsToMany('\App\User','registration')->withTimestamps()
+        ->withPivot('id','full_name','phone_number','ic_number','matric_number','payment_amount');
     }
 }

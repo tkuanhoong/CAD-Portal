@@ -13,10 +13,15 @@ class CreateEventUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_user', function (Blueprint $table) {
+        Schema::create('registration', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('event_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
+            $table->string('full_name');
+            $table->string('phone_number');
+            $table->string('ic_number');
+            $table->string('matric_number');
+            $table->decimal('payment_amount')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ class CreateEventUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_user');
+        Schema::dropIfExists('registration');
     }
 }

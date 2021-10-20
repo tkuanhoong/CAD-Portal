@@ -94,37 +94,17 @@
         @if(count($events) == 0)
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="common-heading">
+                    <div class="common-heading wow fadeInUp" data-wow-delay=".2s">
                         <lottie-player class="mb-4" src="https://assets2.lottiefiles.com/packages/lf20_AQcLsD.json"  background="transparent"  speed="1"  style="margin: 0 auto; width: 200px; height: 200px;"  loop autoplay></lottie-player>
                         <h2 class="mb30">No Program Available</h2>
                     </div>
                 </div>
             </div>
         @else
-        <hr>
-        <div class="row justify-content-left">
-            <div class="col-lg-6">
-                <div class="common-heading pp">
-                    <h4>Filter by categories: </h4>
-                </div>
-            </div>
-        
-            <div class="col-lg-6 v-center">
-                <div class="filters">
-                    <ul class="filter-menu">
-                        <li data-filter="*" class="is-checked">All</li>
-                        <li data-filter=".competition">Competition</li>
-                        <li data-filter=".free">Free</li>
-                        <li data-filter=".recommended">Recommended</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="row card-list">
-            <div class="col-lg-4 col-md-6 grid-sizer"></div>
-                @foreach ($events as $event)
+        <div class="row">
+            @foreach ($events as $event)
                     <div class="col-lg-4 col-sm-6 single-card-item {{ $event->category }}">
-                        <div class="isotope_item hover-scale">
+                        <div class="isotope_item hover-scale btshad-b1">
                             <div class="item-image">
                                 <a href="{{ route('showSingleProgram',$event) }}"><img src="/storage/event_images/{{ $event->banner }}" alt="image" class="img-fluid"/> </a>
                                 <span class="category-blog"><a href="{{ route('showSingleProgram',$event) }}">{{ ucfirst($event->category) }}</a>
@@ -140,12 +120,12 @@
                                         </span>
                                     </div>
                                 </div>
-                                <h4><a href="{{ route('showSingleProgram',$event) }}">{{ $event->title }}</a></h4>
-                                <p style="text-align: justify">{{ $event->short_description }}</p>
+                                <h4 class="clamp-2"><a href="{{ route('showSingleProgram',$event) }}">{{ $event->title }}</a></h4>
+                                <p class="clamp-2">{{ $event->short_description }}</p>
                             </div>
                         </div>
                     </div>
-                @endforeach
+            @endforeach
         </div>
         @endif
 

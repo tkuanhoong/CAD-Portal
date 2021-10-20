@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
 use Auth;
 class PagesController extends Controller
@@ -35,9 +36,27 @@ class PagesController extends Controller
         return view('home.contact');
     }
 
-    public function test(){
-        return view('user.event.show');
+    public function viewEventHistory(User $user, Request $request){
+        if(auth()->user()->id !== $user->id){
+            $request->session()->flash('error','Unauthorized action');
+            return redirect()->route('eventHistory',auth()->user());
+        }
+        $events = $user->events()->paginate(5);
+        return view('user.event.history',compact('events'));
     }
+
+    public function freeEventRegistrationSuccess(){
+        return view('user.event.free-register');
+    }
+
+    public function paidEventRegistrationSuccess(){
+        return view('stripe.paymentSuccess');
+    }
+
+    public function paidEventRegistrationFailed(){
+        return view('stripe.paymentFailed');
+    }
+
 
 
 }

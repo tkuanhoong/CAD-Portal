@@ -18,41 +18,75 @@ Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/programs', 'PagesController@programs')->name('programs');
 Route::get('/programs/{event}', 'PagesController@showSingleProgram')->name('showSingleProgram');
 Route::get('/organization', 'PagesController@organization')->name('organization');
-Route::get('/test', 'PagesController@test')->name('test');
 
-//Contact page controller
+
+// START Programs page controller
+
+//History
+Route::get('/program-history/{user}', 'PagesController@viewEventHistory')->name('eventHistory')->middleware('auth');
+// Register request
+Route::post('/program-register/{event}', 'RegisterEvent')->name('registerForEvent')->middleware('auth');
+// Register free event success page
+Route::get('/register-success', 'PagesController@freeEventRegistrationSuccess')->name('freeEventSuccess')->middleware('auth');
+// Register paid event success page
+Route::get('/paid-register-success', 'PagesController@paidEventRegistrationSuccess')->name('paidEventSuccess')->middleware('auth');
+// Register paid event failed page
+Route::get('/paid-register-failed', 'PagesController@paidEventRegistrationFailed')->name('paidEventFailed')->middleware('auth');
+
+// END Programs page controller
+
+
+// START Contact page controller
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::post('/contact', 'ContactController@saveContact')->name('saveContact');
+// END Contact page controller
 
+
+// START profile page controller
 Route::resource('/profile', 'ProfileController', ['except'=>['show','create','store']]);
 
 Route::put('/change_password/{id}','ChangePasswordController@update')->name('ChangePassword');
+// END profile page controller
 
 
-
+// START authentication routes
 Auth::routes();
+// END authentication routes
 
-//Admin
-//Admin manage users
 
-//Admin manage pages
+// START Admin
+
+// Admin manage pages
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:admin-panel')->group(function(){
     Route::get('/dashboard', 'AdminPagesController@index')->name('index');
     Route::get('/profile', 'AdminPagesController@profile')->name('profile');
     Route::get('/change-password', 'AdminPagesController@ChangePassword')->name('change-password');
 });
 
+// Admin manage users
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except'=>['show','create','store']]);
     Route::put('/users', 'UsersController@verifyAllCheckedUser')->name('users.verifyAll');
     
 });
 
+// Admin manage events
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-events')->group(function(){
     Route::resource('/events', 'EventsController');
 });
 
-//End Admin
+// END Admin
 
+// START Stripe
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post')->middleware('auth');
+// END Stripe
+
+//Test
+Route::get('test', function () {
+    $events = App\Event::all();
+    
+    return view('test',compact('events'));
+    
+});
 
 

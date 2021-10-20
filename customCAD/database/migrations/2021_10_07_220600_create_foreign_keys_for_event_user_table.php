@@ -13,7 +13,7 @@ class CreateForeignKeysForEventUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('event_user', function (Blueprint $table) {
+        Schema::table('registration', function (Blueprint $table) {
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
@@ -26,9 +26,9 @@ class CreateForeignKeysForEventUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('event_user',function(Blueprint $table){
-            $table->dropForeign('event_user_event_id_foreign');
-            $table->dropForeign('event_user_user_id_foreign');
+        Schema::table('registration',function(Blueprint $table){
+            $table->dropForeign('registration_event_id_foreign');
+            $table->dropForeign('registration_user_id_foreign');
 
         });
     }

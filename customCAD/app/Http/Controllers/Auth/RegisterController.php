@@ -89,6 +89,7 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
+        $request->session()->flash('success','Registration Successfull! Please wait for admin to verify your account.');
         //$this->guard()->login($user);
 
         return $this->registered($request, $user)

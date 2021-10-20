@@ -31,8 +31,9 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> My Profile</a>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.profile') }}"><i class="mdi mdi-account-circle font-size-17 align-middle me-1"></i> My Profile</a>
                     <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.change-password') }}"><i class="mdi mdi-lock font-size-17 align-middle me-1"></i> Change Password</a>
+                    <a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}"><i class="mdi mdi-exit-run font-size-17 align-middle me-1"></i> Go to Main Page</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                     onclick="event.preventDefault();

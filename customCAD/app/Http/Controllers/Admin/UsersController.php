@@ -72,7 +72,7 @@ class UsersController extends Controller
         }
 
         if($user->save()){
-            $request->session()->flash('success','User have been updated successfully.');
+            $request->session()->flash('success','User has been updated successfully.');
         }else{
             $request->session()->flash('error','There was an error updating the user');
         }

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\PasswordReset;
+use Session;
 class ResetPasswordController extends Controller
 {
     /*
@@ -46,6 +47,8 @@ class ResetPasswordController extends Controller
         $user->save();
 
         event(new PasswordReset($user));
+
+        Session::flash('success','Password Reset Successful!');
 
         //$this->guard()->login($user);
     }

@@ -8,6 +8,14 @@ right: 0;
 left: auto;}
 .dropdown>.dropdown-toggle:active {pointer-events: none}
 }
+/**width 768 to 426**/
+@media screen and (max-width:768px) and (min-width:426px) {
+.btn-main.home-button,.btn-main.event-history-button{
+    margin-top: 20px;
+    width: 100%;
+}
+}
+
 /**width 1200**/
 @media (min-width:1200px) {
 .container,.container-lg,.container-md,.container-sm,.container-xl {max-width: 1200px}
@@ -236,6 +244,7 @@ background-repeat: no-repeat, no-repeat;}
 }
 /**width 767**/
 @media only screen and (max-width:767px) {
+
 .psforgt{margin-top: 10px;  display: block;  text-align: center;}
 .social-btnnxx{display: flex;}
 .login-form-div {
@@ -329,6 +338,7 @@ text-align: center}
 @media (max-width:580px) {
 .ftr-brand-pp .btn-main {width: max-content; margin: 20px auto 0; display: block;}
 .ftr-brand-pp{text-align: center;}
+
 }
 /**width 520**/
 @media only screen and (max-width:520px) {

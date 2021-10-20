@@ -26,7 +26,13 @@
                     {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu animate slideIn" style="width:100%" aria-labelledby="user">
+                  @can('admin-panel')
+                  <a class="dropdown-item" href="{{ route('admin.index') }}">{{ __('Admin Dashboard') }}</a>
+                  <hr>
+                  @endcan
                   <a class="dropdown-item" href="{{ route('profile.edit', auth()->user()->id) }}">{{ __('My Profile') }}</a>
+                  <hr>
+                  <a class="dropdown-item" href="{{ route('eventHistory', auth()->user()) }}">{{ __('Program History') }}</a>
                   <hr>
                   <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
@@ -72,6 +78,9 @@
     {{ Auth::user()->name }}
     </a>
     <ul>
+      @can('admin-panel')
+      <li><a href="{{ route('admin.index') }}">Admin Dashboard</a></li>
+      @endcan
       <li><a href="{{ route('profile.edit',auth()->user()->id) }}">My Profile</a></li>
       <li><a href="{{ route('logout') }}"
       onclick="event.preventDefault();

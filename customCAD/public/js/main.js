@@ -375,9 +375,11 @@ File Description: Main JS file of the template*/
       percentPosition: true,
       masonry: {
         // use outer width of grid-sizer for columnWidth
-        columnWidth: '.grid-sizer'
+        columnWidth: '.grid-sizer',
       }
     });
+
+
     // filter items on button click
     $('.filter-menu').on('click', 'li', function () {
       var filterValue = $(this).attr('data-filter');
@@ -386,6 +388,8 @@ File Description: Main JS file of the template*/
       });
     });
   });
+
+  
   //for menu active class
   $('.filter-menu li').on('click', function (event) {
     $(this).siblings('.is-checked').removeClass('is-checked');
@@ -398,6 +402,11 @@ File Description: Main JS file of the template*/
   $("[data-background]").each(function () {
     $(this).css("background-image", "url(" + $(this).attr("data-background") + ")")
   })
+
+  $(".isotope_item").on('click', function() {
+    window.location = $(this).find("a").attr("href"); 
+    return false;
+  });
 
 
 })(jQuery);

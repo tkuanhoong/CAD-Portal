@@ -136,7 +136,7 @@
                     <div class="row mb-3">
                         <label for="time" class="col-sm-2 col-form-label">Time</label>
                         <div class="col-sm-10">
-                            <input class="form-control @error('time') is-invalid @enderror" type="time" id="time" name="time" value="{{ date('h:i', strtotime($event->time)) }}">
+                            <input class="form-control @error('time') is-invalid @enderror" type="time" id="time" name="time" value="{{ date('H:i',strtotime($event->time)) }}">
                             @error('time')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

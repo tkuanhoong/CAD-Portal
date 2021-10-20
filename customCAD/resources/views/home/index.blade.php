@@ -94,54 +94,54 @@
         <div class="col-lg-8">
           <div class="common-heading">
             <span>PROGRAMS</span>
-            <h2 class="mb4">Our Upcoming Programs</h2>
+            <h2 style="margin-bottom: 0px !important;">Our Upcoming Programs</h2>
           </div>
         </div>
       </div>
       @if (count($events) == 0)
         <div class="row justify-content-center">
           <div class="col-lg-6">
-              <div class="common-heading">
-                  <lottie-player class="mb-4" src="https://assets2.lottiefiles.com/packages/lf20_AQcLsD.json"  background="transparent"  speed="1"  style="margin: 0 auto; width: 200px; height: 200px;"  loop autoplay></lottie-player>
+              <div class="common-heading wow fadeInUp mt30" data-wow-delay=".2s">
+                  <lottie-player  src="https://assets2.lottiefiles.com/packages/lf20_AQcLsD.json"  background="transparent"  speed="1"  style="margin: 0 auto; width: 200px; height: 200px;"  loop autoplay></lottie-player>
                   <h5 class="mb30">No Program Available</h5>
               </div>
           </div>
         </div>
       @else
-        <div class="row mb-4">
+        <div class="row">
           @php
               $count = 2
           @endphp
           @foreach ($events as $event)
             <div class="col-lg-4 col-sm-6 single-card-item wow fadeInUp" data-wow-delay=".{{ $count }}s">
-              <div class="isotope_item hover-scale">
-                <div class="item-image">
-                  <a href="{{ route('showSingleProgram',$event) }}"><img src="/storage/event_images/{{ $event->banner }}" alt="blog" class="img-fluid"/> </a>
-                  <span class="category-blog"><a href="{{ route('showSingleProgram',$event) }}">{{ ucfirst($event->category) }}</a></span>
-                </div>
-                <div class="item-info blog-info">
-                  <div class="entry-blog">
-                    <div class="mb-4">
-                      <span class="bypost"><a href="{{ route('showSingleProgram',$event) }}"><i class="fas fa-user"></i> {{ $event->organizer }}</a></span>
-                    </div>
-                    <div>
-                      <span class="posted-on">
-                        <a href="{{ route('showSingleProgram',$event) }}"><i class="fas fa-clock"></i> {{ date('D, d M Y', strtotime($event->date)).", ".date('h:i A', strtotime($event->time)) }} </a>
-                      </span>
-                    </div>
+                <div class="isotope_item hover-scale btshad-b1">
+                  <div class="item-image">
+                    <a href="{{ route('showSingleProgram',$event) }}"><img src="/storage/event_images/{{ $event->banner }}" alt="blog" class="img-fluid"/> </a>
+                    <span class="category-blog"><a href="{{ route('showSingleProgram',$event) }}">{{ ucfirst($event->category) }}</a></span>
                   </div>
-                  <h4><a href="{{ route('showSingleProgram',$event) }}">{{ $event->title }}</a></h4>
-                  <p style="text-align: justify">{{ substr($event->short_description, 0, 35 )."..." }}</p>
+                  <div class="item-info blog-info">
+                    <div class="entry-blog">
+                      <div class="mb-4">
+                        <span class="bypost"><a href="{{ route('showSingleProgram',$event) }}"><i class="fas fa-user"></i> {{ $event->organizer }}</a></span>
+                      </div>
+                      <div>
+                        <span class="posted-on">
+                          <a href="{{ route('showSingleProgram',$event) }}"><i class="fas fa-clock"></i> {{ date('D, d M Y', strtotime($event->date)).", ".date('h:i A', strtotime($event->time)) }} </a>
+                        </span>
+                      </div>
+                    </div>
+                    <h4 class="clamp-2"><a href="{{ route('showSingleProgram',$event) }}">{{ $event->title }}</a></h4>
+                    <p class="clamp-2">{{ $event->short_description }}</p>
+                  </div>
                 </div>
-              </div>
             </div>
             @php
               $count += 2
             @endphp
           @endforeach
         </div>
-        <div style="text-align: center">
-          <a href="/programs" class="btn-main bg-btn lnk wow fadeInUp mb-auto" data-wow-delay=".6s">Find Out More Programs! <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
+        <div style="text-align: center;margin-top:30px">
+          <a href="/programs" class="btn-main bg-btn lnk wow fadeInUp mb-auto" data-wow-delay=".2s">Find Out More Programs! <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>
         </div>
       @endif
       

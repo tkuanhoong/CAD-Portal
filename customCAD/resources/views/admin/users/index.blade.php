@@ -48,7 +48,7 @@
 
                 <h4 class="card-title">CADUTMKL Website User List</h4>
                 <p class="card-title-desc">Here you can manage your users</p>
-                <p class="card-title-desc"><input class="form-check-input select-all" type="checkbox" name="selectAll" id="selectAll"> <label for="selectAll">Select all users</label></p>
+                <p class="card-title-desc"><input class="form-check-input select-all" type="checkbox" name="selectAll" id="selectAll"> <label for="selectAll">Select all users on this page</label></p>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                     <thead>
@@ -136,25 +136,5 @@
 
 <!-- Datatable init js -->
 <script src="{{ asset('admin/js/pages/datatables.init.js') }}" defer></script>
-<script type="text/javascript">
-
-    document.getElementById('selectAll').onclick = function() {
-    var checkboxes = document.getElementsByClassName('checkboxes');
-    for (var checkbox of checkboxes) {
-        checkbox.checked = this.checked;
-    }
-    }
-
-    function submitVerifyAllForm(){
-        event.preventDefault();
-        var result = confirm('Are you sure to verify the selected user?');
-        if(result){
-            document.getElementById('verifyAllForm').submit();
-
-        }
-    }
-    
-
-</script>
 <!-- end row -->
 @endsection
