@@ -94,7 +94,7 @@
                         <hr>
                         <form 
                                 role="form" 
-                                action="{{ route('stripe.post', ['event_id' => $event->id,'full_name' => $full_name, 'phone_number' => $phone_number,'ic_number' => $ic_number,
+                                action="{{ route('stripe.post', ['event_id' => $event->id, 'email'=>$email, 'full_name' => $full_name, 'phone_number' => $phone_number,'ic_number' => $ic_number,
                                 'matric_number' => $matric_number, 'total'=> $total] ) }}" 
                                 method="post" 
                                 class="require-validation"

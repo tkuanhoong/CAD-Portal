@@ -115,6 +115,14 @@
                                                                         @enderror
                                                                 </div>
                                                                 <div class="col-md-12">
+                                                                    <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email Address (Certificate will be sent to this email)" name="email" value="{{ old('email') }}">
+                                                                    @error('email')
+                                                                    <span class="invalid-feedback mb-4" role="alert">
+                                                                        <strong style="margin-bottom:50px;color: #de4352;font-size: 15px;float: none; width: 100%;">{{ $message }}</strong>
+                                                                    </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-12">
                                                                     <input type="text" class="form-control @error('phone_number') is-invalid @enderror" placeholder="Contact Number without '-' (eg. 01234567891)" name="phone_number" value="{{ old('phone_number') }}">
                                                                     @error('phone_number')
                                                                     <span class="invalid-feedback mb-4" role="alert">
@@ -138,6 +146,7 @@
                                                                     </span>
                                                                     @enderror
                                                                 </div>
+                                                                
                                                             </div>
                                                             <div class="fieldsets mt20 pb20">
                                                                 <button type="submit" form="register-program-form" class="lnk btn-main bg-btn">Submit <i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></button>

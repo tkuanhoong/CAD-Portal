@@ -41,6 +41,7 @@ class StripePaymentController extends Controller
 
             if($payment->paid){
                 $full_name = strtoupper($request->full_name);
+                $email = $request->email;
                 $phone_number = $request->phone_number;
                 $ic_number = $request->ic_number;
                 $matric_number = $request->matric_number;
@@ -49,6 +50,7 @@ class StripePaymentController extends Controller
                 //establish relationship to register user
                 auth()->user()->events()->attach($event,[
                     'full_name' => $full_name, 
+                    'email' => $email,
                     'phone_number' => $phone_number,
                     'ic_number' => $ic_number,
                     'matric_number' => $matric_number,

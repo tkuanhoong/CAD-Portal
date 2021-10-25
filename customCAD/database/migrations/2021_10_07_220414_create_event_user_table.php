@@ -18,6 +18,7 @@ class CreateEventUserTable extends Migration
             $table->bigInteger('event_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->string('full_name');
+            $table->string('email');
             $table->string('phone_number');
             $table->string('ic_number');
             $table->string('matric_number');

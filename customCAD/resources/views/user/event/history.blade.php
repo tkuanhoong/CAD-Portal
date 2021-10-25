@@ -22,7 +22,7 @@
     </div>
   </section>
   <!--End Breadcrumb Area-->
-  <section class="shop-products-bhv  pt60 pb60">
+  <section style="height:100% !important;"class="shop-products-bhv pt60 pb60">
     <div class="container shop-container">
         
 
@@ -99,7 +99,7 @@
                     <div class="col-lg-6">
                         <div class="common-heading wow fadeInUp" data-wow-delay=".2s">
                             <lottie-player src="https://assets2.lottiefiles.com/private_files/lf30_GjhcdO.json"  background="transparent"  speed="1" style="margin: 0 auto; width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-                            <h5 class="mt30">Seems like you haven't register any program,</h5>
+                            <h5 class="mt30">Seems like you haven't registered any program,</h5>
                             <h5 class="mb30">Try registering a program and come back later.</h5>
                         </div>
                     </div>

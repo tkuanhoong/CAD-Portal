@@ -18,7 +18,7 @@
                     <h5>Thank you for registering our event!</h5>
                     <div class="d-flex justify-content-center buttons">
                         <div class="btn-grp mt40">
-                            <a href="{{ route('eventHistory') }}" class="btn-main bg-btn5 lnk event-history-button">View Event History <i class="fas fa-shopping-cart"></i> <span class="circle"></span></a>
+                            <a href="{{ route('eventHistory',auth()->user()) }}" class="btn-main bg-btn5 lnk event-history-button">View Event History <i class="fas fa-shopping-cart"></i> <span class="circle"></span></a>
                             <a href="{{ route('home') }}" class="btn-main bg-btn3 lnk home-button">Back to Home Page <i class="fas fa-home"></i> <span class="circle"></span></a>
                         </div>
                     </div>
