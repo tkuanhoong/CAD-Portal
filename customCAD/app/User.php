@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function events(){
         return $this->belongsToMany('\App\Event','registration')->withTimestamps()
-        ->withPivot('id','full_name','phone_number','ic_number','matric_number','payment_amount');;
+        ->withPivot('id','email','full_name','phone_number','ic_number','matric_number','payment_amount');
     }
 
 

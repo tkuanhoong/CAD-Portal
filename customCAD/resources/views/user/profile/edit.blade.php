@@ -6,6 +6,10 @@
     <div class="alert alert-success">
       {{ session()->get('success') }}  
     </div><br/>
+  @elseif(session()->get('error'))
+    <div class="alert alert-danger">
+      {{ session()->get('error') }}  
+    </div><br/>
   @endif
   @if ($errors->any())
           @foreach ($errors->all() as $error)
@@ -37,7 +41,7 @@
                 <form action="{{ route('profile.update',auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
                       @csrf
                       {{ method_field('PUT') }}
-                    <img style="vertical-align: middle;width: 100px;height: 100px;border-radius: 50%;object-fit:cover;" id="img_preview" src="/storage/avatar_images/{{ auth()->user()->avatar }} " alt="avatar" class="d-block">
+                    <img style="vertical-align: middle;width: 100px;height: 100px;border-radius: 50%;object-fit:cover;" id="img_preview" src="{{ auth()->user()->avatar == "userLogo.png" ? Storage::disk('s3')->url('avatar_images/'.auth()->user()->avatar) : Storage::disk('s3')->url('avatar_images/'.auth()->user()->id.'/'.auth()->user()->avatar)}} " alt="avatar" class="d-block">
                     <br>
                     <div class="media-body">
                       <label class="btn btn-outline-primary">

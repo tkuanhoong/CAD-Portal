@@ -86,23 +86,25 @@ class UsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, User $user)
     {
         if(Gate::denies('delete-users')){
             return redirect()->route('admin.users.index');
         }
-        
-        //Delete user profile picture
-        if($user->avatar != 'userLogo.png'){
-            //Delete Image
-            Storage::delete('public/avatar_images/'.$user->avatar);
-        }
-
-        //Delete user role
-        $user->roles()->detach();
 
         //Delete whole date of the user from user table
-        $user->delete();
+        if($user->delete()){
+            //Delete user role
+            $user->roles()->detach();
+            //Delete user profile picture
+            if($user->avatar != 'userLogo.png'){
+                //Delete Image
+                Storage::disk('s3')->delete('avatar_images/'.$user->id.'/'.$user->avatar);
+            }
+            $request->session()->flash('success','The user has been deleted successfully!');
+        }else{
+            $request->session()->flash('error','There was an error deleting the user!');
+        }
 
         return redirect()->route('admin.users.index');
     }
@@ -121,24 +123,6 @@ class UsersController extends Controller
         }else{
             return back()->with('error','There was a problem verifying user(s)');
         }
-
-    }
-
-    public function unverifyAllCheckedUser(Request $request){
-    
-        
-        if($request->has('checkboxes')){
-            $checkedUsers = $request->checkboxes;
-            foreach($checkedUsers as $checkedUser){
-                DB::table('users')->where('id','=',$checkedUser)->update(['verification'=>"unverified"]);
-            }
-            return back()->with('success','The selected user(s) has been unverified!');
-        }else if(!$request->has('checkboxes')){
-            return back()->with('warning','There is no selected user(s). Please select at least 1 user to unverify.');
-        }else{
-            return back()->with('error','There was a problem unverifying user(s)');
-        }
-        
 
     }
 

@@ -2,7 +2,7 @@
 
 @section('content')
 <!--Start register Form-->
-<section class="register-page pad-tb">
+<section style="height:auto" class="register-page pad-tb">
     <div class="v-center m-auto">
       <div class="register-form-div">
         <a href="{{ route('home') }}" class="d-block text-center mb30"><img src="{{ asset('images/cadLogoNoText.png') }}" alt="Logo" class="mega-darks-logo" width="80"></a>     
@@ -13,7 +13,8 @@
             <div class="fieldsets row">
 
               <div class="col-md-6 form-group">
-                    <input id="name" type="text"  placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  <label for="name"><h6>Name (8 - 20 characters)</h6></label>
+                    <input id="name" type="text"  placeholder="Enter Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -22,7 +23,8 @@
               </div>
 
               <div class="col-md-6 form-group">
-                    <input id="email" type="email"  placeholder="Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                <label for="email"><h6>Email Address</h6></label>
+                    <input id="email" type="email"  placeholder="Enter Email Address" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -30,8 +32,9 @@
                     @enderror
               </div>
 
-              <div class="col-md-12 form-group">
-                    <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+              <div class="col-md-12 form-group mt-4">
+                <label for="password"><h6>Password (minimum 8 characters)</h6></label>
+                    <input id="password" type="password" placeholder="Enter Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -39,8 +42,9 @@
                     @enderror
               </div>
 
-              <div class="col-md-12 form-group">
-                    <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+              <div class="col-md-12 form-group mt-4">
+                <label for="password-confirm"><h6>Confirm Password</h6></label>
+                    <input id="password-confirm" type="password" placeholder="Enter Confirm Password" class="form-control" name="password_confirmation" required autocomplete="new-password">
               </div>
 
             </div>

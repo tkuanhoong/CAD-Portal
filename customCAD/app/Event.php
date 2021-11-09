@@ -19,6 +19,6 @@ class Event extends Model
     ];
     public function users(){
         return $this->belongsToMany('\App\User','registration')->withTimestamps()
-        ->withPivot('id','full_name','phone_number','ic_number','matric_number','payment_amount');
+        ->withPivot('id','email','full_name','phone_number','ic_number','matric_number','payment_amount');
     }
 }

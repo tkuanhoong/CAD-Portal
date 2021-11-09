@@ -70,7 +70,7 @@
                         <td>#{{ $event->id }}</td>
                         <td>
                             <div>
-                                <img src="/storage/event_images/{{ $event->banner }}" alt="eventBanner"
+                                <img src="{{ $event->banner ==  'NoImage.png' ? Storage::disk('s3')->url('event_images/'.$event->banner) : Storage::disk('s3')->url('event_images/'.$event->id.'/'.$event->banner) }}" alt="eventBanner"
                                     class="avatar-xs rounded-circle me-2"> {{ $event->title }}
                             </div>
                         </td>
@@ -92,6 +92,7 @@
                             <div class="btn-group float-end">
                                 <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <i class="mdi mdi-chevron-down"></i></button>
                                 <div class="dropdown-menu dropdown-menu-end">
+                                    <a class="dropdown-item" href="{{ route('admin.events.showParticipants',$event) }}">Show Participants</a>
                                     <a class="dropdown-item" href="{{ route('admin.events.show',$event) }}">View</a>
                                     <a class="dropdown-item" href="{{ route('admin.events.edit',$event) }}">Edit</a>
                                     <div class="dropdown-divider"></div>

@@ -37,7 +37,7 @@
                             <i class="fas fa-map-marker"></i>
                         </div>
                         <div class="text pl-4">
-                            <p><span>Address:</span>Jalan Sultan Yahya Petra, Kampung Datuk Keramat, 54100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
+                            <p><span>Address:</span>{{ $ContactPage->address }}</p>
                         </div>
                     </div>
                     <div class="dbox d-flex align-items-start">
@@ -45,7 +45,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="text pl-4">
-                            <p><span>Phone:</span> <a href="tel:+60182038004">+60 18-2038004</a></p>
+                            <p><span>Phone:</span> <a href="tel:{{ $ContactPage->phone }}">{{ $ContactPage->phone }}</a></p>
                         </div>
                     </div>
                     <div class="dbox d-flex align-items-start">
@@ -53,7 +53,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="text pl-4">
-                            <p><span>Email:</span> <a href="mailto:info@niwax.com">cadutmkl@gmail.com</a></p>
+                            <p><span>Email:</span> <a href="mailto:{{ $ContactPage->email }}">{{ $ContactPage->email }}</a></p>
                         </div>
                     </div>
                     <div class="dbox d-flex align-items-start">
@@ -61,7 +61,7 @@
                             <i class="fa fa-globe"></i>
                         </div>
                         <div class="text pl-4">
-                            <p><span>Website</span> <a href="/">www.cadutmkl.com</a></p>
+                            <p><span>Website</span> <a href="{{ $ContactPage->website }}">{{ $ContactPage->website }}</a></p>
                         </div>
                     </div>
                 </div>
@@ -74,6 +74,10 @@
                     @if(session()->has('success'))
                         <div class="alert alert-success">
                             {{ session()->get('success') }}
+                        </div>
+                    @elseif(session()->has('failed'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('failed') }}
                         </div>
                     @endif							
                     <h2 class="mt0 mb0">Get In Touch</h2>

@@ -72,7 +72,7 @@
                         <td>#{{ $user->id }}</td>
                         <td>
                             <div>
-                                <img src="/storage/avatar_images/{{ $user->avatar }}" alt="userImage"
+                                <img src="{{ $user->avatar == "userLogo.png" ? Storage::disk('s3')->url('avatar_images/'.$user->avatar) : Storage::disk('s3')->url('avatar_images/'.$user->id.'/'.$user->avatar)}}" alt="userImage"
                                     class="avatar-xs rounded-circle me-2"> {{ $user->name }}
                             </div>
                         </td>

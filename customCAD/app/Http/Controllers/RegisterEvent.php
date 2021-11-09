@@ -33,19 +33,23 @@ class RegisterEvent extends Controller
             $matric_number = $request->input('matric_number');
 
             if($event->fee != 0){
-                return view('stripe.payment',compact('event','email','full_name','phone_number','ic_number','matric_number'));
+                return view('stripe.payment',compact('event','full_name','email','phone_number','ic_number','matric_number'));
             }else{
-                //establish relationship to register user
-                auth()->user()->events()->attach($event,[
-                    'full_name' => $full_name, 
-                    'email' => $email,
-                    'phone_number' => $phone_number,
-                    'ic_number' => $ic_number,
-                    'matric_number' => $matric_number,
-                    'payment_amount' => null
-                ]);
-                //establish relationship
-                return view('user.event.free-register');
+                try {
+                    auth()->user()->events()->attach($event,[
+                        'full_name' => $full_name, 
+                        'email' => $email,
+                        'phone_number' => $phone_number,
+                        'ic_number' => $ic_number,
+                        'matric_number' => $matric_number,
+                        'payment_amount' => null
+                    ]);
+                    //return success page
+                    return redirect()->route('freeEventSuccess');
+                } catch (\Throwable $th) {
+                    //$errorMessage = $th->getMessage();
+                    return view('user.event.free-register-failed');
+                }
             }
 
         

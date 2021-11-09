@@ -28,6 +28,8 @@ Route::get('/program-history/{user}', 'PagesController@viewEventHistory')->name(
 Route::post('/program-register/{event}', 'RegisterEvent')->name('registerForEvent')->middleware('auth');
 // Register free event success page
 Route::get('/register-success', 'PagesController@freeEventRegistrationSuccess')->name('freeEventSuccess')->middleware('auth');
+// Register free event failed page
+Route::get('/register-failed', 'PagesController@freeEventRegistrationFailed')->name('freeEventFailed')->middleware('auth');
 // Register paid event success page
 Route::get('/paid-register-success', 'PagesController@paidEventRegistrationSuccess')->name('paidEventSuccess')->middleware('auth');
 // Register paid event failed page
@@ -73,6 +75,21 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 // Admin manage events
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-events')->group(function(){
     Route::resource('/events', 'EventsController');
+    Route::get('/partipants/{event}', 'EventsController@showParticipants')->name('events.showParticipants');
+});
+
+// Admin manage contacts
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-contacts')->group(function(){
+    Route::resource('/contacts', 'ContactsController', ['except'=>['create','store','edit','update']]);
+});
+
+// Admin manage pages
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-pages')->group(function(){
+    Route::resource('/home', 'HomeController', ['except'=>['index','create','store','show','destroy']]);
+    Route::resource('/AboutPage', 'AboutPageController', ['except'=>['index','create','store','show','destroy']]);
+    Route::resource('/ContactPage', 'ContactPageController', ['except'=>['index','create','store','show','destroy']]);
+    Route::resource('/Organization', 'OrganizationController', ['except'=>['index','create','store','show','destroy']]);
+    Route::resource('/Tops', 'TopsController',['except'=>['create','store','destroy']]);
 });
 
 // END Admin
@@ -88,5 +105,6 @@ Route::get('test', function () {
     return view('test',compact('events'));
     
 });
+
 
 

@@ -24,7 +24,7 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="/storage/avatar_images/{{ auth()->user()->avatar }}"
+                    <img class="rounded-circle header-profile-user" src="{{ auth()->user()->avatar == "userLogo.png" ? Storage::disk('s3')->url('avatar_images/'.auth()->user()->avatar) : Storage::disk('s3')->url('avatar_images/'.auth()->user()->id.'/'.auth()->user()->avatar)}}"
                         alt="Header Avatar">
                         {{ auth()->user()->name }}
                     
@@ -79,6 +79,30 @@
                         <i class="ti-user"></i>
                         <span>Members</span>
                     </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('admin.contacts.index') }}" class="waves-effect">
+                        <i class="ti-bell"></i>
+                        <span>Contacts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+                        <i class="ti-pencil-alt"></i>
+                        <span>Edit Pages</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true" style="height: 0px;">
+                        <li><a href="{{ route('admin.home.edit',App\Home::first()) }}" >Home Page</a></li>
+                        <li><a href="{{ route('admin.AboutPage.edit',App\AboutPage::first()) }}" >About Page</a></li>
+                        <li><a href="javascript: void(0);" class="has-arrow">Organization Page</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ route('admin.Organization.edit',App\Organization::first()) }}">Edit Organization Name</a></li>
+                                <li><a href="{{ route('admin.Tops.index') }}">Edit Top Members</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ route('admin.ContactPage.edit',App\ContactPage::first()) }}" >Contact Page</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

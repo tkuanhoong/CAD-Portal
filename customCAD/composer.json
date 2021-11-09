@@ -15,6 +15,7 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.*",
+        "league/flysystem-aws-s3-v3": "~1.0",
         "stripe/stripe-php": "^7.100"
     },
     "require-dev": {

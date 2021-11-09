@@ -4,18 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\User;
+use App\Home;
+use App\AboutPage;
+use App\ContactPage;
+use App\Organization;
+use App\Top;
 use Illuminate\Http\Request;
 use Auth;
 class PagesController extends Controller
 {
 
     public function index(){
+        $home = Home::first();
         $events = Event::orderBy('date','asc')->orderBy('time', 'asc')->limit(3)->get();
-        return view('home.index',compact('events'));
+        return view('home.index',compact('events','home'));
     }
 
     public function about(){
-        return view('home.about');
+        $home = Home::first();
+        $AboutPage = AboutPage::first();
+        return view('home.about',compact('home','AboutPage'));
     }
 
     public function programs(){
@@ -29,11 +37,16 @@ class PagesController extends Controller
 
 
     public function organization(){
-        return view('home.organization');
+        $Organization = Organization::first();
+        $founder = Top::where('priority', '=', 1)->limit(1)->get()->first();
+        $president = Top::where('priority', '=', 2)->limit(1)->get()->first();
+        $tops = Top::orderBy('priority','asc')->where('priority', '<>', 1)->where('priority', '<>', 2)->get();
+        return view('home.organization',compact('Organization','founder','president','tops'));
     }
 
     public function contact(){
-        return view('home.contact');
+        $ContactPage = ContactPage::first();
+        return view('home.contact',compact('ContactPage'));
     }
 
     public function viewEventHistory(User $user, Request $request){
@@ -47,6 +60,10 @@ class PagesController extends Controller
 
     public function freeEventRegistrationSuccess(){
         return view('user.event.free-register');
+    }
+
+    public function freeEventRegistrationFailed(){
+        return view('user.event.free-register-failed');
     }
 
     public function paidEventRegistrationSuccess(){

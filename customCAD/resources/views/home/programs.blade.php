@@ -106,7 +106,7 @@
                     <div class="col-lg-4 col-sm-6 single-card-item {{ $event->category }}">
                         <div class="isotope_item hover-scale btshad-b1">
                             <div class="item-image">
-                                <a href="{{ route('showSingleProgram',$event) }}"><img src="/storage/event_images/{{ $event->banner }}" alt="image" class="img-fluid"/> </a>
+                                <a href="{{ route('showSingleProgram',$event) }}"><img src="{{ $event->banner ==  'NoImage.png' ? Storage::disk('s3')->url('event_images/'.$event->banner) : Storage::disk('s3')->url('event_images/'.$event->id.'/'.$event->banner) }}" alt="image" class="img-fluid"/> </a>
                                 <span class="category-blog"><a href="{{ route('showSingleProgram',$event) }}">{{ ucfirst($event->category) }}</a>
                             </div>
                             <div class="item-info blog-info">

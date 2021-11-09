@@ -40,9 +40,9 @@
           <h2 class="mb20">“There is no must in art because art is free.”</h2>
           <p>The object of art is not to reproduce reality, but to create a reality of the same intensity.</p>
           <div class="follow-label mt30"><h6>Follow Us</h6>
-            <a href="https://www.facebook.com/cadutmkl186/" target="_blank" class="wow bounceIn" data-wow-delay=".2s"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/cad_utmkl/" target="_blank" class="wow bounceIn" data-wow-delay=".4s"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/cadutmkl" target="_blank" class="wow bounceIn" data-wow-delay=".6s"><i class="fab fa-telegram"></i></a>
+            <a href="{{ $home->facebook_link }}" target="_blank" class="wow bounceIn" data-wow-delay=".2s"><i class="fab fa-facebook"></i></a>
+            <a href="{{ $home->instagram_link }}" target="_blank" class="wow bounceIn" data-wow-delay=".4s"><i class="fab fa-instagram"></i></a>
+            <a href="{{ $home->telegram_link }}" target="_blank" class="wow bounceIn" data-wow-delay=".6s"><i class="fab fa-telegram"></i></a>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <div class="counter-no mb20 wow bounceIn" data-wow-delay=".2s">
             <div class="hexagon hexa1" data-tilt data-tilt-max="20" data-tilt-speed="1000">
               <div class="counter-number">
-                <span class="counter">0</span><span></span>
+                <span class="counter">{{ $home->upcoming_programs }}</span><span></span>
                 <p>Upcoming<br>Programs</p>
               </div>
             </div>
@@ -59,7 +59,7 @@
           <div class="counter-no mb20  wow bounceIn" data-wow-delay=".4s">
             <div class="hexagon hexa2" data-tilt data-tilt-max="20" data-tilt-speed="1000">
               <div class="counter-number">
-                <span class="counter">0</span><span></span>
+                <span class="counter">{{ $home->programs_completed }}</span><span></span>
                 <p>Programs<br>Completed</p>
               </div>
             </div>
@@ -67,7 +67,7 @@
           <div class="counter-no mt20  wow bounceIn" data-wow-delay=".6s">
             <div class="hexagon hexa3" data-tilt data-tilt-max="20" data-tilt-speed="1000">
               <div class="counter-number">
-                <span class="counter">500</span>
+                <span class="counter">{{ $home->members }}</span>
                 <p>Members</p>
               </div>
             </div>
@@ -75,7 +75,7 @@
           <div class="counter-no mt20  wow bounceIn" data-wow-delay=".8s">
             <div class="hexagon hexa4" data-tilt data-tilt-max="20" data-tilt-speed="1000">
               <div class="counter-number">
-                <span class="counter">1</span><span></span>
+                <span class="counter">{{ $home->years }}</span><span></span>
                 <p>Year</p>
               </div>
             </div>
@@ -116,7 +116,7 @@
             <div class="col-lg-4 col-sm-6 single-card-item wow fadeInUp" data-wow-delay=".{{ $count }}s">
                 <div class="isotope_item hover-scale btshad-b1">
                   <div class="item-image">
-                    <a href="{{ route('showSingleProgram',$event) }}"><img src="/storage/event_images/{{ $event->banner }}" alt="blog" class="img-fluid"/> </a>
+                    <a href="{{ route('showSingleProgram',$event) }}"><img src="{{ $event->banner ==  'NoImage.png' ? Storage::disk('s3')->url('event_images/'.$event->banner) : Storage::disk('s3')->url('event_images/'.$event->id.'/'.$event->banner) }}" alt="blog" class="img-fluid"/> </a>
                     <span class="category-blog"><a href="{{ route('showSingleProgram',$event) }}">{{ ucfirst($event->category) }}</a></span>
                   </div>
                   <div class="item-info blog-info">

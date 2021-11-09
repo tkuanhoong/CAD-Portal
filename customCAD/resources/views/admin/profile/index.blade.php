@@ -41,7 +41,7 @@
                     @csrf
                     {{ method_field('PUT') }}
                     <div class="img-preview-section">
-                        <img id="img_preview"  src="/storage/avatar_images/{{ auth()->user()->avatar }}" alt="admin-picture"
+                        <img id="img_preview"  src="{{ auth()->user()->avatar == "userLogo.png" ? Storage::disk('s3')->url('avatar_images/'.auth()->user()->avatar) : Storage::disk('s3')->url('avatar_images/'.auth()->user()->id.'/'.auth()->user()->avatar)}}" alt="admin-picture"
                             class="avatar-lg rounded-circle me-2">
                             <input type="file" id='imgInp' name='avatar' class="@error('name') is-invalid @enderror">
                         <div style="font-size: 13px;"class="small mt-1 mb-3">Allowed JPG, JPEG or PNG. Max size of 800KB</div>

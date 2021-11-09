@@ -22,7 +22,7 @@
               @else
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img style="vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;object-fit:cover;" src="/storage/avatar_images/{{ auth()->user()->avatar}}" alt="userLogo" width="35"/>
+                    <img style="vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;object-fit:cover;" src="{{ auth()->user()->avatar == "userLogo.png" ? Storage::disk('s3')->url('avatar_images/'.auth()->user()->avatar) : Storage::disk('s3')->url('avatar_images/'.auth()->user()->id.'/'.auth()->user()->avatar)}}" alt="userLogo" width="35"/>
                     {{ Auth::user()->name }}
                 </a>
                 <div class="dropdown-menu animate slideIn" style="width:100%" aria-labelledby="user">
@@ -74,7 +74,7 @@
   </li>
   @else
   <li>
-    <a href="#"><img style="vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;object-fit:cover;" src="/storage/avatar_images/{{ auth()->user()->avatar }}" alt="userLogo" width="35"/>
+    <a href="#"><img style="vertical-align: middle;width: 35px;height: 35px;border-radius: 50%;object-fit:cover;" src="{{ auth()->user()->avatar == "userLogo.png" ? Storage::disk('s3')->url('avatar_images/'.auth()->user()->avatar) : Storage::disk('s3')->url('avatar_images/'.auth()->user()->id.'/'.auth()->user()->avatar)}}" alt="userLogo" width="35"/>
     {{ Auth::user()->name }}
     </a>
     <ul>
@@ -82,6 +82,7 @@
       <li><a href="{{ route('admin.index') }}">Admin Dashboard</a></li>
       @endcan
       <li><a href="{{ route('profile.edit',auth()->user()->id) }}">My Profile</a></li>
+      <li><a href="{{ route('eventHistory',auth()->user()) }}">Program History</a></li>
       <li><a href="{{ route('logout') }}"
       onclick="event.preventDefault();
       document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>

@@ -85,8 +85,8 @@
                             <hr>
                             <h4 class="text-center"><b>You will be charged as below:</b></h4><br>
                             <h4 class="panel-title">Registration fee <span class="pull-right">{{ $event->fee }}</span><br></h4>
-                            <h4 class="panel-title">Stripe Processing fee <span class="pull-right">{{ $processing_fee = number_format($event->fee * 0.03 + 1, 2) }}</span><br></h4>
-                            <h4 class="panel-title">Taxes <span class="pull-right">{{ $taxes = number_format($processing_fee * 0.06, 2) }}</span><br></h4>
+                            <h4 class="panel-title">Stripe Processing fee (3% of Registration fee + RM 1.00) <span class="pull-right">{{ $processing_fee = number_format($event->fee * 0.03 + 1, 2) }}</span><br></h4>
+                            <h4 class="panel-title">Taxes (6% of Stripe Processing fee) <span class="pull-right">{{ $taxes = number_format($processing_fee * 0.06, 2) }}</span><br></h4>
                             <hr>
                             <h4 class="panel-title">Total Amount <span class="pull-right">{{ $total = number_format($event->fee + $processing_fee + $taxes, 2) }}</span><br></h4>
                         </div>
@@ -94,7 +94,7 @@
                         <hr>
                         <form 
                                 role="form" 
-                                action="{{ route('stripe.post', ['event_id' => $event->id, 'email'=>$email, 'full_name' => $full_name, 'phone_number' => $phone_number,'ic_number' => $ic_number,
+                                action="{{ route('stripe.post', ['event_id' => $event->id, 'email' => $email, 'full_name' => $full_name, 'phone_number' => $phone_number,'ic_number' => $ic_number,
                                 'matric_number' => $matric_number, 'total'=> $total] ) }}" 
                                 method="post" 
                                 class="require-validation"

@@ -15,7 +15,11 @@
 </div>
 <!-- end page title -->
 
-
+@if ($errors->any())
+          <div class="alert alert-warning">
+            Please make sure your event details are valid.
+          </div>
+@endif
 
 <div class="row">
     <div class="col-12">
@@ -32,7 +36,7 @@
                         <div class="col-sm-10">
                         <img id="img_preview" style="width: 370px;
                         height: 270px;
-                        object-fit: contain;" src="/storage/event_images/{{$event->banner}}" alt="preview_image">
+                        object-fit: contain;" src="{{ $event->banner ==  'NoImage.png' ? Storage::disk('s3')->url('event_images/'.$event->banner) : Storage::disk('s3')->url('event_images/'.$event->id.'/'.$event->banner) }}" alt="preview_image">
                         </div>
                     </div>
 
@@ -187,6 +191,21 @@
                         <div class="col-sm-10">
                             <input class="form-control @error('meeting_link') is-invalid @enderror" type="text" id="meeting_link" name="meeting_link" value="{{ $event->meeting_link }}">
                             @error('meeting_link')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class=" row mb-3">
+                        <label class="col-sm-2 col-form-label">Registration Availability</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" id="availability" name="availability" aria-label="Default select example">
+                                <option @if($event->availability === 'available') selected @endif value="available">Available</option>
+                                <option @if($event->availability === 'unavailable') selected @endif value="unavailable">Unavailable</option>
+                            </select>
+                            @error('availability')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

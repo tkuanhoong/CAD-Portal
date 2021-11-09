@@ -62,26 +62,23 @@ class ProfileController extends Controller
             // Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
 
-            // Upload Image
-            $path = $request->file('avatar')->storeAs('public/avatar_images', $fileNameToStore);
+            $user->avatar = $fileNameToStore;
 
         }
 
         //Input Data
         $user->name = $request->name;
-        if($request->hasFile('avatar')){
-            if($user->avatar != 'userLogo.png'){
-                Storage::delete('public/avatar_images/' . $user->avatar);
-                $user->avatar = $fileNameToStore;
-            }else{
-                $user->avatar = $fileNameToStore;
-            }
-        }
-            
-        
-
+        $originalFile = $user->getOriginal('avatar');
 
         if($user->save()){
+            if($request->hasFile('avatar')){
+                if($user->avatar != 'userLogo.png'){
+                // Delete Original Image
+                Storage::disk('s3')->delete('avatar_images/'.auth()->user()->id.'/'.$originalFile);
+                // Upload Image
+                $path = $request->file('avatar')->storeAs('avatar_images/'.auth()->user()->id.'/', $fileNameToStore,'s3');
+                }
+            }
             $request->session()->flash('success','Your profile have been successfully changed!');
         }else{
             $request->session()->flash('error','There is problem saving your profile');

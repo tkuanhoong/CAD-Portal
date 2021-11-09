@@ -17,9 +17,13 @@ class ContactController extends Controller
         ]);
         
         $contact = Contact::create($validated);
-        $contact->save();
         
-        return back()->with('success','Thank you for contacting us!');
+        if($contact->save()){
+            return back()->with('success','Thank you for contacting us!');
+        }else{
+            return back()->with('failed','There was problem saving the contact form!');
+        }
+        
         
     }
 }

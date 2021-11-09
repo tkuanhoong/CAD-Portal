@@ -53,8 +53,13 @@ class EventsController extends Controller
             'attendance_link' => 'required|url',
             'whatsapp_link' => 'required|url',
             'meeting_link' => 'required|url',
+            'availability' => 'required',
         ]);
 
+        //Create new instance for event model
+        $event = new Event;
+        
+        
         if($request->hasfile('banner')){
 
             // Get filename with extension
@@ -68,16 +73,11 @@ class EventsController extends Controller
 
             // Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
-
-            // Upload Image
-            $path = $request->file('banner')->storeAs('public/event_images', $fileNameToStore);
-
+            
         }else{
             $fileNameToStore = 'NoImage.png';
         }
         
-        //Create new instance for event model
-        $event = new Event;
         
         //input values
         $event->banner = $fileNameToStore;
@@ -93,15 +93,18 @@ class EventsController extends Controller
         $event->attendance_link = $request->input('attendance_link');
         $event->whatsapp_link = $request->input('whatsapp_link');
         $event->meeting_link = $request->input('meeting_link');
+        $event->availability = $request->input('availability');
         
         if($event->save()){
-            $request->session()->flash('success','The event has been successfully created!');
+            if($request->hasfile('banner')){
+                // Upload Image
+                $path = $request->file('banner')->storeAs('event_images/'.$event->id.'/', $fileNameToStore,'s3');
+            }
+                $request->session()->flash('success','The event has been successfully created!');
         }else{
             $request->session()->flash('error','There is problem creating event');
         }
-        return redirect()->route('admin.events.index');
-
-        
+        return redirect()->route('admin.events.index'); 
         
     }
 
@@ -114,6 +117,10 @@ class EventsController extends Controller
     public function show(Event $event)
     {
         return view('admin.events.show',compact('event'));
+    }
+
+    public function showParticipants(Event $event){
+        return view('admin.events.participants',compact('event'));
     }
 
     /**
@@ -150,6 +157,7 @@ class EventsController extends Controller
             'attendance_link' => 'required|url',
             'whatsapp_link' => 'required|url',
             'meeting_link' => 'required|url',
+            'availability' => 'required',
         ]);
 
         if($request->hasfile('banner')){
@@ -166,20 +174,10 @@ class EventsController extends Controller
             // Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
 
-            // Upload Image
-            $path = $request->file('banner')->storeAs('public/event_images', $fileNameToStore);
+            $event->banner = $fileNameToStore;
 
         }
-     
-        //input values
-        if($request->hasFile('banner')){
-            if($event->banner != 'NoImage.png'){
-                Storage::delete('public/event_images/' . $event->banner);
-                $event->banner = $fileNameToStore;
-            }else{
-                $event->banner = $fileNameToStore;
-            }
-        }
+        
         $event->title = $request->input('title');
         $event->short_description = $request->input('short_description');
         $event->description = $request->input('description');
@@ -192,8 +190,19 @@ class EventsController extends Controller
         $event->attendance_link = $request->input('attendance_link');
         $event->whatsapp_link = $request->input('whatsapp_link');
         $event->meeting_link = $request->input('meeting_link');
+        $event->availability = $request->input('availability');
+        
+        $originalFile = $event->getOriginal('banner');
         
         if($event->save()){
+            if($request->hasFile('banner')){
+                if($event->banner != 'NoImage.png'){
+                // Delete Original Image
+                Storage::disk('s3')->delete('event_images/'.$event->id.'/'.$originalFile);
+                // Upload Image
+                $path = $request->file('banner')->storeAs('event_images/'.$event->id.'/', $fileNameToStore,'s3');
+                }
+            }
             $request->session()->flash('success','The event has been successfully updated!');
         }else{
             $request->session()->flash('error','There was problem updating event!');
@@ -211,11 +220,11 @@ class EventsController extends Controller
      */
     public function destroy(Request $request, Event $event)
     {
-        if($event->banner != 'NoImage.png'){
-            //Delete Image
-            Storage::delete('public/event_images/'.$event->banner);
-        }
         if($event->delete()){
+            if($event->banner != 'NoImage.png'){
+                //Delete Image
+                Storage::disk('s3')->delete('event_images/'.$event->id.'/'.$event->banner);
+            }
             $request->session()->flash('success','The event has been deleted successfully!');
         }else{
             $request->session()->flash('error','There was an error deleting the event!');

@@ -43,7 +43,7 @@
                         <div class="col-sm-10">
                         <img id="img_preview" style="width: 370px;
                         height: 270px;
-                        object-fit: contain;" src="/storage/event_images/NoImage.png" alt="preview_image">
+                        object-fit: contain;" src="{{ Storage::disk('s3')->url('event_images/NoImage.png') }}" alt="preview_image">
                         <span class="text-muted">If the event has no image this is the default image</span>
                         </div>
                     </div>
@@ -203,6 +203,16 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                        </div>
+                    </div>
+
+                    <div class=" row mb-3">
+                        <label class="col-sm-2 col-form-label">Registration Availability</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" name="availability" aria-label="Default select example">
+                                <option value="available">Available</option>
+                                <option value="unavailable">Unavailable</option>
+                            </select>
                         </div>
                     </div>
                     

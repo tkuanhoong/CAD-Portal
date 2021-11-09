@@ -55,6 +55,10 @@
                                               <td>{{ $event->pivot->full_name }}</td>
                                           </tr>
                                           <tr>
+                                            <th>Email</th>
+                                            <td>{{ $event->pivot->email }}</td>
+                                          </tr>
+                                          <tr>
                                               <th>Participant Mobile</th>
                                               <td>{{ $event->pivot->phone_number }}</td>
                                           </tr>

@@ -36,7 +36,7 @@
             
             <div class="col-lg-8">
                 <div class="rpb-shop-prevw">
-                    <img src="/storage/event_images/{{ $event->banner }}" class="w-100" alt="event-banner">
+                    <img src="{{ $event->banner ==  'NoImage.png' ? Storage::disk('s3')->url('event_images/'.$event->banner) : Storage::disk('s3')->url('event_images/'.$event->id.'/'.$event->banner) }}" class="w-100" alt="event-banner">
                 </div>
 
                 <div class="rpb-item-info">
@@ -85,7 +85,9 @@
                         </li>
                         <li>
                             @if (Auth::check())
-                                @if(auth()->user()->events->pluck('id')->contains($event->id))
+                                @if($event->availability === 'unavailable')
+                                    <button class="btn-main bg-btn2 lnk w-100" disabled>Registration Closed<span class="circle"></span></button>
+                                @elseif(auth()->user()->events->pluck('id')->contains($event->id))
                                     <button class="btn-main bg-btn2 lnk w-100" disabled>Registered<span class="circle"></span></button>
                                 @else
                                 <a href="#" class="btn-main bg-btn lnk w-100" data-toggle="modal" data-target="#modalform">Register<i class="fas fa-chevron-right fa-icon"></i><span class="circle"></span></a>

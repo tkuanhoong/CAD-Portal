@@ -30,9 +30,9 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="footer-social-media-icons">
-              <a href="https://www.facebook.com/cadutmkl186/" target="_blank"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.instagram.com/cad_utmkl/" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://t.me/cadutmkl" target="_blank"><i class="fab fa-telegram"></i></a>
+              <a href="{{ App\Home::first()->facebook_link }}" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="{{ App\Home::first()->instagram_link }}" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="{{ App\Home::first()->telegram_link }}" target="_blank"><i class="fab fa-telegram"></i></a>
             </div>
             <div class="footer-">
               <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> CADUTMKL. All rights reserved.</p>

@@ -29,7 +29,7 @@
                         <div class="col-sm-10">
                         <img id="img_preview" style="width: 370px;
                         height: 270px;
-                        object-fit: contain;" src="/storage/event_images/{{ $event->banner }}" alt="preview_image">
+                        object-fit: contain;" src="{{ $event->banner ==  'NoImage.png' ? Storage::disk('s3')->url('event_images/'.$event->banner) : Storage::disk('s3')->url('event_images/'.$event->id.'/'.$event->banner) }}" alt="preview_image">
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label for="short_description" class="col-sm-2 col-form-label">Title</label>
+                        <label for="short_description" class="col-sm-2 col-form-label">Short Description</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" id="short_description" name="short_description" value="{{ $event->short_description }}" disabled>
                         </div>
@@ -116,6 +116,14 @@
                             <input class="form-control" type="text" id="meeting_link" name="meeting_link" value="{{ $event->meeting_link }}" disabled>
                         </div>
                     </div>
+
+                    <div class="row mb-3">
+                        <label for="availability" class="col-sm-2 col-form-label">Registration Availability</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" id="availability" name="availability" value="{{ ucfirst($event->availability) }}" disabled>
+                        </div>
+                    </div>
+
                     <a href="{{ route('admin.events.index') }}"><button type="button" class="btn btn-primary waves-effect waves-light float-end">Back</button></a>
                     <a href="{{ route('admin.events.edit',$event) }}"><button type="button" class="btn btn-primary waves-effect waves-light float-end me-2">Edit</button></a>
                     

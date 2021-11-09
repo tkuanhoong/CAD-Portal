@@ -52,7 +52,7 @@
             <div class="col-lg-4 col-sm-4">
               <div class="statistics">
                 <div class="statnumb counter-number">
-                  <span class="counter">0</span>
+                  <span class="counter">{{ $home->programs_completed }}</span>
                   <p>Completed Programs</p>
                 </div>
               </div>
@@ -60,7 +60,7 @@
             <div class="col-lg-4 col-sm-4">
               <div class="statistics">
                 <div class="statnumb">
-                  <span class="counter">500</span>
+                  <span class="counter">{{ $home->members }}</span>
                   <p>Members</p>
                 </div>
               </div>
@@ -68,7 +68,7 @@
             <div class="col-lg-4 col-sm-4">
               <div class="statistics mb0">
                 <div class="statnumb counter-number">
-                  <span class="counter">1</span>
+                  <span class="counter">{{ $home->years }}</span>
                   <p>Years</p>
                 </div>
               </div>
@@ -88,10 +88,10 @@
     <span>Mission</span>
     <h2>Our Mission</h2>
     <ul class="list-ul ul-circle">
-      <li>Continuously promote Art category in Universiti Teknologi Malaysia Kuala Lumpur</li>
-      <li>To exploit potentialities on students' creativity</li>
-      <li>Cultivating the budding talents of UTMKL students</li>
-      <li>Creating programs for UTMKL students to take part in and students literally enjoy in our programs</li>
+      <li>{{ $AboutPage->mission1 }}</li>
+      <li>{{ $AboutPage->mission2 }}</li>
+      <li>{{ $AboutPage->mission3 }}</li>
+      <li>{{ $AboutPage->mission4 }}</li>
     </ul>
     
     </div>
@@ -119,10 +119,10 @@
     <span>Vision</span>
     <h2>Our Vision</h2>
     <ul class="list-ul ul-circle">
-      <li>Making art a routine in UTMKL</li>
-      <li>Becoming the most popular Art club in UTMKL</li>
-      <li>Exploring talents in UTMKL</li>
-      <li>Creating exhilarating programs for students to have different experience</li>
+      <li>{{ $AboutPage->vision1 }}</li>
+      <li>{{ $AboutPage->vision2 }}</li>
+      <li>{{ $AboutPage->vision3 }}</li>
+      <li>{{ $AboutPage->vision4 }}</li>
     </ul>
     
     </div>
