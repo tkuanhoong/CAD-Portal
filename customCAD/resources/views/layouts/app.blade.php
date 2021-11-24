@@ -2,6 +2,9 @@
 <html lang="en" class="no-js">
     <head>
         <meta charset="utf-8"/>
+        <meta name="description" content="Creative Art & Design Club UTMKL is a club in UTMKL that promotes the art skills of UTMKL Students.">
+        <meta name="keywords" content="Creative Art & Design Club, CADUTMKL">
+        <meta name="author" content="Tan Kuan Hoong">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="theme-color" content="#ffd6d6">

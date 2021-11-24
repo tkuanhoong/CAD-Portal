@@ -10,7 +10,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12 col-sm-12 text-center">
-          <a class="navbar-brand img-ctr" href="#"> <img src="{{ asset('images/cadlogoNoText.png') }}" alt="cadLogo" width="100" /></a>
+          <a class="navbar-brand img-ctr" href="#"> <img src="{{ asset('images/cadLogoNoText.png') }}" alt="cadLogo" width="100" /></a>
           
           <ul class="footer-link-v2 link-hover mt30">
             <li><a href="/">Home</a></li>

@@ -98,13 +98,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post')->middleware('auth');
 // END Stripe
 
-//Test
-Route::get('test', function () {
-    $events = App\Event::all();
-    
-    return view('test',compact('events'));
-    
-});
 
 
 

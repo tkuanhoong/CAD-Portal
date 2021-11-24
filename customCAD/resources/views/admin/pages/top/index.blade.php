@@ -43,7 +43,7 @@
                 <h4 class="card-title">CADUTMKL Top Member List</h4>
                 <p class="card-title-desc">Here you can manage your top members</p>
                 <p class="card-title-desc">Priority: <br>
-                    1 - Founder <br>
+                    1 - Club Advisor <br>
                     2 - President <br>
                     3 to 14 - Remaining Top Member <br>
                 </p>
